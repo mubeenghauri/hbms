@@ -1,38 +1,38 @@
 API ROUTES
 ==========
 
-* POST /register 
+# POST /register 
 	
 	Registers users into the database
-	PARAMETERS:
+## PARAMETERS:
 		- name
 		
 		- password
 		
 		- role [bawa, super-bawa]
 
-* POST /login
+# POST /login
 	
 	Logs in an authenticated user
 	
-** PARAMETERS
+## PARAMETERS
 		
 		- name
 		- password
 
-* GET /user (protected)
+# GET /user (protected)
 	
 	Returns user's info to an authenticated request
 	
-* GET /accounts (protected)
+# GET /accounts (protected)
 		
 	Returns all accounts
 
-* GET /accounts/(account-name) (protected)
+# GET /accounts/(account-name) (protected)
 	
 	Returns details for a specific account
 
-* GET /transaction	(protected)
+# GET /transaction	(protected)
 	
 	Returns all transactions concerned to the user
 
@@ -52,7 +52,7 @@ API ROUTES
 	}
 	```
 
-* GET /transaction/{transaction-id}
+# GET /transaction/{transaction-id}
 	
 	Returns details of transaction for the given id
 	```	
@@ -69,7 +69,7 @@ API ROUTES
 	}
 	```
 
-* GET /entry/{account-id} 
+# GET /entry/{account-id} 
 	
 	Returns all entries for an account
 
@@ -82,7 +82,8 @@ API ROUTES
 		'date': DATE
 	}
 	```
-* GET /account 
+
+# GET /account 
 	
 	Returns all accounts
 
@@ -100,6 +101,6 @@ API ROUTES
 	}
 	```
 
-* POST /account
+# POST /account
 	Create an account
 
