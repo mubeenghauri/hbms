@@ -9,21 +9,28 @@ API ROUTES
 		- role [bawa, super-bawa]
 
 * POST /login
+	
 	Logs in an authenticated user
+	
 	** PARAMETERS
+		
 		- name
 		- password
 
 * GET /user (protected)
+	
 	Returns user's info to an authenticated request
 	
 * GET /accounts (protected)
+		
 	Returns all accounts
 
 * GET /accounts/(account-name) (protected)
+	
 	Returns details for a specific account
 
 * GET /transaction	(protected)
+	
 	Returns all transactions concerned to the user
 
 	```
@@ -43,6 +50,7 @@ API ROUTES
 	```
 
 * GET /transaction/{transaction-id}
+	
 	Returns details of transaction for the given id
 	```	
 	{
@@ -59,6 +67,7 @@ API ROUTES
 	```
 
 * GET /entry/{account-id} 
+	
 	Returns all entries for an account
 
 	```
@@ -71,6 +80,7 @@ API ROUTES
 	}
 	```
 * GET /account 
+	
 	Returns all accounts
 
 	```
@@ -81,10 +91,12 @@ API ROUTES
 			"owner": "user",
 			"debit": entry[],
 			"credit": eentry[]
-		}
+		},
+		...,
+		...,
 	}
 	```
 
 * POST /account
-
+	Create an account
 
