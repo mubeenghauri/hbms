@@ -2,8 +2,10 @@ API ROUTES
 ==========
 
 * POST /register 
+	
 	Registers users into the database
-	** PARAMETERS:
+	
+** PARAMETERS:
 		- name
 		- password
 		- role [bawa, super-bawa]
@@ -12,7 +14,7 @@ API ROUTES
 	
 	Logs in an authenticated user
 	
-	** PARAMETERS
+** PARAMETERS
 		
 		- name
 		- password
