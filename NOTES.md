@@ -69,7 +69,7 @@ API ROUTES
 	}
 	```
 
-### * GET /entry/{account-id} 
+### * GET /account/{account-id}/entry
 	
 	Returns all entries for an account
 
@@ -80,8 +80,11 @@ API ROUTES
 		'amount': "123",
 		'desc': "some description",
 		'date': DATE
-	}
+	},
+	...,
+	...,
 	```
+
 ### * GET /account 
 	
 	Returns all accounts
@@ -103,3 +106,48 @@ API ROUTES
 ### * POST /account
 	Create an account
 
+### * POST /account/{d/c}/{entry}/
+	Adds entry into account
+
+
+Transaction Use Case
+====================
+
+- UserA deposits 5000 into Budget Account
+
+	- POST /account/Budget/d/entry
+		```
+		{
+			'entry-id': "123",
+			'user': "UserA",
+			'amount': "5000",
+			'desc': "Amount for budget FTM March-2020",
+			'date': DATE
+		},
+		```
+	- Transaction is created
+		```
+		{
+			'id': "a3fc23ce",
+			'from': "UserA",
+			'to': "House",
+			'to-id': "entry-id",
+			'from-id': '123',
+			'balance': "2300",
+			'desc': "some description",
+			'type': "BORROWED | HOUSE | EXPENSE",
+			'date': DATE
+		}
+		
+		```	
+
+
+
+
+
+
+
+
+
+
+	
