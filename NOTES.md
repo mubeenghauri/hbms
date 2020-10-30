@@ -32,7 +32,7 @@ API ROUTES
 	
 	Returns details for a specific account
 
-### * GET /transaction	(protected)
+### * GET /transactions	(protected)
 	
 	Returns all transactions concerned to the user
 
@@ -79,6 +79,8 @@ API ROUTES
 		'user': "user",
 		'amount': "123",
 		'desc': "some description",
+		'debit': 0,
+		'credit': 1000,
 		'date': DATE
 	},
 	...,
@@ -95,6 +97,8 @@ API ROUTES
 			"id": "someRaNd0mStR1nG",
 			"name": "ACC#1",
 			"owner": "user",
+			"desc": "some descrption for account",
+			"date": "date on which it was created",
 			"debit": entry[],
 			"credit": eentry[]
 		},
@@ -118,6 +122,7 @@ Transaction Use Case
 	- POST /account/Budget/d/entry
 		```
 		{
+			'account': 'budget',
 			'entry-id': "123",
 			'user': "UserA",
 			'amount': "5000",
@@ -138,16 +143,26 @@ Transaction Use Case
 			'type': "BORROWED | HOUSE | EXPENSE",
 			'date': DATE
 		}
-		
-		```	
+		```
 
 
 
+Accounts and Entries
+=======================
+
+For every account (table), there will be a corresponding entries (table). eg: BudgetAccount will have BudgetAccountEntries. This information will be stored in a table, EntriesLookup. 
 
 
 
+TEST CASES
+==========
+
+1) Login 
+2) Register
 
 
+NOTE TO SELF
+============
 
-
-	
+Create a resource named account to transform response. 
+(p.352)
