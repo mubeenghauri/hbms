@@ -16,12 +16,12 @@ class CreatEntryTable extends Migration
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
             $table->string('user');
-            $table->integer('debit');
-            $table->integer('credit');
+            $table->integer('amount');
+            $table->string('type');
             $table->string('description');
             $table->string('account');
             $table->date('made_on');
-
+            $table->timestamps();
         });
     }
 
