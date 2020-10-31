@@ -34,20 +34,20 @@ class UserTest extends TestCase
      * Test to verify proper validation is 
      * taking place.
      * 
-     * should return code: 200
+     * should return code: 401 (user already exists)
      * @return void
      */
     public function testRegisterUserCreation() {
 
         $payload = [
-            'name' => "hassaan",
-            'password' => "hassaan",
+            'name' => "Admin",
+            'password' => "admin",
             'role' => "super-bawa"
         ];
 
         $response = $this->json('POST', 'api/register', $payload);
         $response->dump();
-        $response->assertStatus(201);
+        $response->assertStatus(401);
     }
 
 

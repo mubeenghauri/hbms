@@ -23,7 +23,7 @@ class AccountTest extends TestCase
         $token = json_decode($response->getContent());
         $token = (array)$token;
         $token = $token['token'];
-        echo $token;
+        // echo $token;
         $this->assertTrue(true);
         return $token;
     }
@@ -36,7 +36,7 @@ class AccountTest extends TestCase
     public function testCreateAccount()
     {
         $payload = [
-            'name' => "Test Account9",
+            'name' => "Test9",
             'owner' => "admin",
             'description' => "some desc",
             'created_on' => "23-08-2011",
@@ -49,11 +49,11 @@ class AccountTest extends TestCase
         $response
             ->assertStatus(403)
             ->assertJson([
-                'error' => "User already exists"
+                'error' => "Account already exists"
             ]);
     }
 
     public function testAccountCreated() {
-        $this->assertTrue(Account::accountExists("Test Account2"));
+        $this->assertTrue(Account::accountExists("Test9"));
     }
 }
