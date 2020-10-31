@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -33,16 +34,20 @@ class UserController extends Controller
 	    ]);
 
 	    if($validator->fails()){
-	            return response()->json($validator->errors()->toJson(), 400);
+	    	return response()->json($validator->errors()->toJson(), 400);
 	    }
 
-	    $user = User::create([
-	        'name' => $request->get('name'),
-	        'password' => Hash::make($request->get('password')),
-	        'role' => $request->get('role')
-	    ]);
-
-	    $token = JWTAuth::fromUser($user);
+	    $user = null;
+	    try {
+		    $user = User::create([
+		        'name' => $request->get('name'),
+		        'password' => Hash::make($request->get('password')),
+		        'role' => $request->get('role')
+		    ]);	
+		    $token = JWTAuth::fromUser($user);
+	    } catch (QueryException $e) {
+	    	return response()->json(["error" => "User already exists"], 401);	
+	    }
 
 	    return response()->json(compact('user','token'),201);
 	}
