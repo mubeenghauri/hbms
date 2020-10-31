@@ -11,7 +11,7 @@ class Account extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'account_id';
+    // protected $primaryKey = 'account_id';
 
     protected $fillable = ['name', 'owner', 'description', 'created_on'];
 

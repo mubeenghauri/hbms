@@ -28,4 +28,5 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('users', 'UserController@getAllUsers');
     Route::get('closed', 'DataController@closed');
     Route::post('accounts', "AccountController@create");
+    Route::post('accounts/{accountName}/{op}/entry/{type}', "AccountController@makeEntry");
 });

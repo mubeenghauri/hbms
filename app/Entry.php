@@ -10,17 +10,18 @@ class Entry extends Model
     /**
      * Gets Entries for a given account
      */
+    protected $table = "entries";
 
     protected $primaryKey = 'entry_id';
 
     protected $fillable = [
     	'user', 
-    	'debit', 
-    	'credit', 
+    	'amount', 
+    	'type', 
     	'description',
     	'account',
     	'made_on'
-    ]
+    ];
 
     
 
